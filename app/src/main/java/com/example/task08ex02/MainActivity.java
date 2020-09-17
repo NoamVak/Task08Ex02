@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         eq.putExtra("a",a);
         eq.putExtra("b",b);
         eq.putExtra("c",c);
-        startActivityForResult(eq, 1);
+        startActivity(eq);
 
     }
 }

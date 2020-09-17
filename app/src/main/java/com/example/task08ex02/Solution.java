@@ -17,6 +17,7 @@ public class Solution extends AppCompatActivity {
     ImageView function;
     TextView x1Disp,x2Disp;
     WebView funcDisp;
+    Intent equation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class Solution extends AppCompatActivity {
         function=(ImageView)findViewById(R.id.function);
         funcDisp=(WebView)findViewById(R.id.funcDisp);
 
-        Intent equation=getIntent();
+        equation= getIntent();
 
         a=equation.getDoubleExtra("a",1);
         b=equation.getDoubleExtra("b",1);
@@ -36,14 +37,11 @@ public class Solution extends AppCompatActivity {
 
         funcDisp.getSettings().setJavaScriptEnabled(true);
         funcDisp.setWebViewClient(new MyWebViewClient());
+
+        Math();
+        function();
     }
 
-    public void goBack(View view) {
-        equation.putExtra("ans 1",x1);
-        equation.putExtra("ans 2",x2);
-        setResult(RESULT_OK,);
-        finish();
-    }
 
     private class MyWebViewClient extends WebViewClient {
         public boolean shouldOverdriveUrlLoading(WebView view, String url){
@@ -61,8 +59,8 @@ public class Solution extends AppCompatActivity {
             x2Disp.setText("no answer");
         }
         else{
-            x1Disp.setText(String.valueOf(x1));
-            x2Disp.setText(String.valueOf(x2));
+            x1Disp.setText(""+x1);
+            x2Disp.setText(""+x2);
         }
     }
 
@@ -75,9 +73,18 @@ public class Solution extends AppCompatActivity {
         }
     }
 
-   /* public void graph(){
+   public void graph(){
 
-    }*/
 
+
+    }
+
+    public void goBack(View view) {
+        equation.putExtra("ans1",x1);
+        equation.putExtra("ans2",x2);
+        setResult(RESULT_OK,equation);
+        finish();
+
+    }
 
 }
