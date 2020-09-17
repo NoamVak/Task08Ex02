@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             ans2=data_back.getDoubleExtra("ansX2",1);
         }
     }
+    //I can't retrieve the data from activity 2 I don't know why//
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
