@@ -7,34 +7,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
-
 public class MainActivity extends AppCompatActivity {
     EditText aCoef,bCoef,cCoef;
+    TextView sol1,sol2;
     double a,b,c;
     String coef;
     Random rnd=new Random();
     double ans1,ans2;
 
-    @Override
-   /* protected void onActivityResult(int source, int good, @Nullable Intent data_back) {
-        super.onActivityResult(source, good, data_back);
-        if (data_back != null) {
-            ans1 = data_back.getDoubleExtra("ans 1", 0);
-            ans2 = data_back.getDoubleExtra("ans 2", 0);
 
+    @Override
+    protected void onActivityResult(int source, int good, @Nullable Intent data_back) {
+        super.onActivityResult(source, good, data_back);
+        if(data_back != null){
+            ans1=data_back.getDoubleExtra("ansX1",1);
+            ans2=data_back.getDoubleExtra("ansX2",1);
         }
-    }*/
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sol1=(TextView) findViewById(R.id.sol1);
+        sol2=(TextView) findViewById(R.id.sol2);
         aCoef=(EditText) findViewById(R.id.aCoff);
         bCoef=(EditText) findViewById(R.id.bCoff);
         cCoef=(EditText)findViewById(R.id.cCoff);
+
+        sol1.setText("x1= "+ans1);
+        sol2.setText("x2= "+ans2);
     }
+
 
     public void Submit1(View view) {
         coef=aCoef.getText().toString();
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         eq.putExtra("a",a);
         eq.putExtra("b",b);
         eq.putExtra("c",c);
-        startActivity(eq);
+        startActivityForResult(eq,1);
 
     }
 }

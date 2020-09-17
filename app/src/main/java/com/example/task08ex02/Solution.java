@@ -40,6 +40,7 @@ public class Solution extends AppCompatActivity {
 
         Math();
         function();
+        graph();
     }
 
 
@@ -59,8 +60,8 @@ public class Solution extends AppCompatActivity {
             x2Disp.setText("no answer");
         }
         else{
-            x1Disp.setText(""+x1);
-            x2Disp.setText(""+x2);
+            x1Disp.setText("x1= "+x1);
+            x2Disp.setText("x2= "+x2);
         }
     }
 
@@ -74,17 +75,17 @@ public class Solution extends AppCompatActivity {
     }
 
    public void graph(){
-
-
-
+        String sa=String.valueOf(a);
+        String sb=String.valueOf(b);
+        String sc=String.valueOf(c);
+        funcDisp.loadUrl("https://www.google.com/search?safe=strict&sxsrf=ALeKk00NWRRMg_4jEa4KETb_3QMVcF8HLQ%3A1600334628838&ei=JCtjX-jWMsaE1fAP4bewgAc&q="+a+"x%5E2%2B"+b+"x%2B"+c+"&oq="+a+"x%5E2%2B"+b+"x%2B"+c+"&gs_lcp=CgZwc3ktYWIQAzIICAAQBxAeEBMyCAgAEAcQHhATMggIABAHEB4QEzIICAAQBxAeEBMyCAgAEAcQHhATMggIABAHEB4QEzIICAAQBxAeEBMyBAgAEBMyBAgAEBMyBAgAEBM6BAgAEEdQ0x5Y0x5gryhoAHACeACAAasBiAGrAZIBAzAuMZgBAKABAaoBB2d3cy13aXrIAQbAAQE&sclient=psy-ab&ved=0ahUKEwjo-MqI7-_rAhVGQhUIHeEbDHAQ4dUDCA0&uact=5");
     }
 
     public void goBack(View view) {
-        equation.putExtra("ans1",x1);
-        equation.putExtra("ans2",x2);
+        equation.putExtra("ansX1",x1);
+        equation.putExtra("ansX2",x2);
         setResult(RESULT_OK,equation);
         finish();
-
     }
 
 }
