@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     double ans1,ans2;
 
     @Override
-    protected void onActivityResult(int source, int good, @Nullable Intent data_back) {
+   /* protected void onActivityResult(int source, int good, @Nullable Intent data_back) {
         super.onActivityResult(source, good, data_back);
         if (data_back != null) {
             ans1 = data_back.getDoubleExtra("ans 1", 0);
             ans2 = data_back.getDoubleExtra("ans 2", 0);
 
         }
-    }
+    }*/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

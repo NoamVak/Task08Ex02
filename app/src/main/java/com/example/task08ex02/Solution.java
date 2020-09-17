@@ -13,7 +13,6 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class Solution extends AppCompatActivity {
-    Intent equation=getIntent();
     double x1,x2,a,b,c,root;
     ImageView function;
     TextView x1Disp,x2Disp;
@@ -29,9 +28,11 @@ public class Solution extends AppCompatActivity {
         function=(ImageView)findViewById(R.id.function);
         funcDisp=(WebView)findViewById(R.id.funcDisp);
 
-        a=equation.getDoubleExtra("Coef a",1);
-        b=equation.getDoubleExtra("Coef b",1);
-        c=equation.getDoubleExtra("Coef c", 1);
+        Intent equation=getIntent();
+
+        a=equation.getDoubleExtra("a",1);
+        b=equation.getDoubleExtra("b",1);
+        c=equation.getDoubleExtra("c", 1);
 
         funcDisp.getSettings().setJavaScriptEnabled(true);
         funcDisp.setWebViewClient(new MyWebViewClient());
@@ -40,7 +41,7 @@ public class Solution extends AppCompatActivity {
     public void goBack(View view) {
         equation.putExtra("ans 1",x1);
         equation.putExtra("ans 2",x2);
-        setResult(RESULT_OK,equation);
+        setResult(RESULT_OK,);
         finish();
     }
 
